@@ -27,6 +27,21 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/api/*", (req, res) => {
+  let url = req.url;
+  url = url.substring(5);
+  const command = `${ytdlp} ${url} -f b --get-url`;
+
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return res.send("Error occurred during download");
+    }
+
+    res.send(stdout);
+  });
+});
+
 app.post("/download", (req, res) => {
   const url = req.body.url;
   const command = `${ytdlp} ${url} -f b --get-url`;
@@ -37,7 +52,7 @@ app.post("/download", (req, res) => {
       return res.send("Error occurred during download");
     }
 
-    res.send(stdout);
+    res.json(stdout);
   });
 });
 
