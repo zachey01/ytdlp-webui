@@ -3,9 +3,19 @@ const { exec } = require("child_process");
 const ejs = require("ejs");
 const path = require("path");
 const cors = require("cors");
+const os = require("os");
 
 const app = express();
 const port = 3000;
+let ytdlp;
+
+if (os.platform() === "win32") {
+  ytdlp = "yt-dlp.exe";
+} else if (os.platform() === "darwin") {
+  ytdlp = "yt-dlp_macos";
+} else {
+  ytdlp = "yt-dlp_linux";
+}
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -19,7 +29,7 @@ app.get("/", (req, res) => {
 
 app.post("/download", (req, res) => {
   const url = req.body.url;
-  const command = `yt-dlp.exe ${url} -f b --get-url`;
+  const command = `${ytdlp} ${url} -f b --get-url`;
 
   exec(command, (error, stdout, stderr) => {
     if (error) {
