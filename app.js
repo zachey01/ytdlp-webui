@@ -4,6 +4,7 @@ const ejs = require("ejs");
 const path = require("path");
 const cors = require("cors");
 const os = require("os");
+const favicon = require("serve-favicon");
 
 const app = express();
 const port = 3000;
@@ -18,6 +19,7 @@ if (os.platform() === "win32") {
 }
 
 app.use(express.urlencoded({ extended: true }));
+app.use(favicon(__dirname + "/public/img/favicon.ico"));
 app.use(express.static("public"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
