@@ -1,0 +1,29 @@
+{
+  "name": "ytdlp-webui",
+  "version": "1.0.0",
+  "description": "WebUI for Yt-Dlp",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachey01/ytdlp-webui.git"
+  },
+  "author": "Zachey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zachey01/ytdlp-webui/issues"
+  },
+  "homepage": "https://github.com/zachey01/ytdlp-webui#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "youtube-search-without-api-key": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

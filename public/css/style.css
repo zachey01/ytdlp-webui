@@ -1,0 +1,24 @@
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+form button {
+  border: none;
+  background: white;
+}
+
+.video-player {
+  width: 40%;
+  height: 30%;
+}
+
+#downloadContainer {
+  text-align: center;
+}

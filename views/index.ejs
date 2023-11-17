@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head.ejs'); %>
+  </head>
+  <body>
+    <h1>
+      <a
+        href="https://github.com/yt-dlp/yt-dlp"
+        style="text-decoration: none; color: black"
+        >YT-DLP</a
+      >
+      Web Interface
+    </h1>
+    <div class="container-sm" style="width: 40%">
+      <form>
+        <input
+          type="text"
+          name="url"
+          placeholder="Enter video URL"
+          required
+          class="form-control"
+        />
+        <button type="submit">
+          <img
+            src="/img/search-icon.svg"
+            alt="Download"
+            width="30"
+            height="30"
+          />
+        </button>
+        <br />
+      </form>
+      <p id="error-holder" style="color: red; margin-top: 5px"></p>
+    </div>
+    <div id="downloadContainer"></div>
+
+    <footer><%- include('./partials/footer.ejs'); %></footer>
+  </body>
+</html>
